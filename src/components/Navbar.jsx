@@ -43,7 +43,7 @@ const Navbar = () => {
         <ul className="lg:flex gap-10 hidden">
           <h2 className="font-bold uppercase">
           <Link to="/" element={<Home />} >
-          Allen
+          <img src="https://allen-ui-clone.vercel.app/logo_dark.svg" alt="" className="h-5 relative top-1" />
           </Link>
           </h2>
           {router.map((route) => (

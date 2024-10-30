@@ -9,6 +9,12 @@ const Home = () => {
     "https://allen.in/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdpzpn3dkw%2Fimage%2Fupload%2Fv1729604923%2FStudy_eicbtr.webp&w=640&q=75"
   ];
 
+  const images1= [
+    "https://res.cloudinary.com/dpzpn3dkw/image/upload/v1729669258/Group_1171279293_1_e72ssd.png",
+    "https://res.cloudinary.com/dpzpn3dkw/image/upload/v1728302450/Homepage_Banner_1_sn5css.webp",
+    "https://res.cloudinary.com/dpzpn3dkw/image/upload/v1729669258/Group_1171279293_1_e72ssd.png"
+  ];
+  
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleDotClick = (index) => {
@@ -34,8 +40,7 @@ const Home = () => {
 
         {/* Right Content: Image Carousel */}
         <div className="w-full h-full flex flex-col items-center">
-          <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-lg ">
-            {/* Image */}
+          <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-lg">
             <img
               src={images[activeIndex]}
               alt={`Slide ${activeIndex + 1}`}
@@ -61,15 +66,20 @@ const Home = () => {
       {/* Bottom Image Section */}
       <section className="mt-20 flex flex-col items-center">
         <img
-          src="https://res.cloudinary.com/dpzpn3dkw/image/upload/v1729669258/Group_1171279293_1_e72ssd.png"
+          src={images1[activeIndex]}
           alt="Additional Graphic"
           className=""
         />
         <div className="flex gap-2 mt-5">
-        <button className="h-2 w-2 rounded-full bg-gray-300"></button>
-        <button className="h-2 w-2 rounded-full bg-gray-300"></button>
-        <button className="h-2 w-2 rounded-full bg-gray-300"></button>
-
+          {images1.map((image, index) => (
+            <div key={index} className="bottom-image">
+              <button  key={index}
+                className={`h-2 w-2 rounded-full transition ${
+                  activeIndex === index ? "bg-blue-600" : "bg-gray-400"
+                }`}
+                onClick={() => handleDotClick(index)} />
+            </div>
+          ))}
         </div>
       </section>
     </main>
